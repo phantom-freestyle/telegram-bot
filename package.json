@@ -10,17 +10,18 @@
   },
   "main": "dist/index.js",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "start": "node dist/index.js",
-    "build": "tsc -p tsconfig.json",
+    "dev": "node init && tsx watch src/index.ts",
+    "start": "node init && node dist/index.js",
+    "build": "node init && tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "npm run build && node --test tests/format.test.mjs tests/health.test.mjs",
+    "test": "npm run build && node --test tests/format.test.mjs tests/health.test.mjs tests/contracts-command.test.mjs",
     "scan": "tsx src/stellar/events.ts"
   },
   "dependencies": {
     "@stellar/stellar-sdk": "^16.2.0",
     "dotenv": "^16.4.5",
-    "grammy": "^1.30.0"
+    "grammy": "^1.30.0",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "@types/node": "^22.9.0",
